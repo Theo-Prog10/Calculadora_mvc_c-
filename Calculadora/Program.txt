@@ -1,0 +1,44 @@
+﻿
+public class MainClass{
+    public static void Main(string[] args){
+        Console.WriteLine("Olá!");
+        Console.WriteLine("1 : Somar");
+        Console.WriteLine("2 : Subtrair");
+        Console.WriteLine("3 : Multiplicar");
+        Console.WriteLine("4 : Dividir");
+        Console.WriteLine("5 : FIM");
+
+        Console.WriteLine("Escolha uma opção:");
+        int operacao = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Informe o primeiro valor:");
+        int valor1 = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Informe o segundo valor:");
+        int valor2 = Convert.ToInt32(Console.ReadLine());
+
+        int resultado = -1;
+
+        switch (operacao){
+            case 1:
+                resultado = valor1 + valor2;
+                break;
+            case 2:
+                resultado = valor1 - valor2;
+                break;
+            case 3:
+                resultado = valor1 * valor2;
+                break;
+            case 4:
+                resultado = valor1 / valor2;
+                break;
+        }
+
+        if (resultado == -1){
+            Console.WriteLine("T+");
+        }
+        else{
+            Console.WriteLine("O Resultado é " + resultado);
+        }
+    }
+}
