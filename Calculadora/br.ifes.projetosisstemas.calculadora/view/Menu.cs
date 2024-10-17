@@ -1,18 +1,14 @@
 using System;
 using DTO;
 
-namespace View
-{
-    public class Menu
-    {
-        public RequestDTO Show()
-        {
-            this.ShowMenu();
-            return this.CaptureValues();
+namespace View{
+    public class Menu{
+        public RequestDTO Show(){
+            ShowMenu();
+            return CaptureValues();
         }
 
-        private RequestDTO CaptureValues()
-        {
+        private RequestDTO CaptureValues(){
             Console.WriteLine("Informe a operação desejada:");
             string opcao = Console.ReadLine();
 
@@ -25,9 +21,8 @@ namespace View
             return new RequestDTO(opcao, valor1, valor2);
         }
 
-        private void ShowMenu()
-        {
-            Console.WriteLine("---->Olá Meu fi!<----");
+        private void ShowMenu(){
+            Console.WriteLine("-->Olá Meu fi!<----");
             Console.WriteLine("Informe a operação desejada:");
             Console.WriteLine("Somar");
             Console.WriteLine("Subtrair");
@@ -35,8 +30,7 @@ namespace View
             Console.WriteLine("Dividir");
         }
 
-        public void ShowResult(ResponseDTO responseDTO)
-        {
+        public void ShowResult(ResponseDTO responseDTO){
             Console.WriteLine("O Resultado é: " + responseDTO.Result);
         }
     }

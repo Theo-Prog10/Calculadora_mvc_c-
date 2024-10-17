@@ -3,21 +3,16 @@ using DTO;
 using Model;
 using Model.Operation;
 
-namespace Controller
-{
-    public class ControllerCalc
-    {
-        public ResponseDTO Calc(RequestDTO requestDTO)
-        {
+namespace Controller{
+    public class ControllerCalc{
+        public ResponseDTO Calc(RequestDTO requestDTO){
             int result = 0;
             ICalc calc;
 
-            if (requestDTO.Opcao == "Somar")
-            {
+            if (requestDTO.Opcao == "Somar"){
                 calc = new Calc();
             }
-            else
-            {
+            else{
                 calc = new CalcX();
             }
 
@@ -25,8 +20,7 @@ namespace Controller
             string operationClassName = $"Model.Operation.{requestDTO.Opcao}";
             Type operationClass = Type.GetType(operationClassName);
             
-            if (operationClass == null)
-            {
+            if (operationClass == null){
                 throw new Exception($"Operação {requestDTO.Opcao} não encontrada.");
             }
 
