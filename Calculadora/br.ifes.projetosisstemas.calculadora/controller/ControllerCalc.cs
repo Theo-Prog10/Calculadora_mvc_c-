@@ -16,18 +16,13 @@ namespace Controller{
                 calc = new CalcX();
             }
 
-            // Localiza e instancia a classe da operação dinamicamente
+            //pega o nome da classe e instancia a classe da operação
             string operationClassName = $"Model.Operation.{requestDTO.Opcao}";
             Type operationClass = Type.GetType(operationClassName);
-            
-            if (operationClass == null){
-                throw new Exception($"Operação {requestDTO.Opcao} não encontrada.");
-            }
 
-            // Instancia a operação dinamicamente
+            //Instancia a operação
             IOperation operation = (IOperation)Activator.CreateInstance(operationClass);
 
-            // Realiza o cálculo
             result = calc.Calculation(operation, requestDTO.Valor1, requestDTO.Valor2);
 
             return new ResponseDTO(result);
